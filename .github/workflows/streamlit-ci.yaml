@@ -22,5 +22,8 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./streamlit_app
+          platforms: linux/amd64,linux/arm64
           push: true
-          tags: docker.io/${{ vars.DOCKERHUB_USERNAME }}/streamlit:latest
+          tags: |
+            docker.io/${{ vars.DOCKERHUB_USERNAME }}/streamlit:latest
+            docker.io/${{ vars.DOCKERHUB_USERNAME }}/streamlit:${{ github.sha }}

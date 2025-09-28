@@ -134,5 +134,8 @@ jobs:
       with:
           context: .
           file: ./Dockerfile
+          platforms: linux/amd64,linux/arm64
           push: true
-          tags: docker.io/${{ vars.DOCKERHUB_USERNAME }}/house-price-model:latest
+          tags: |
+            docker.io/${{ vars.DOCKERHUB_USERNAME }}/house-price-model:latest
+            docker.io/${{ vars.DOCKERHUB_USERNAME }}/house-price-model:${{ github.sha }}
